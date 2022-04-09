@@ -10,7 +10,7 @@ const Cart = () => {
   return (
     <aside className="w-[27rem]">
       <div
-        className={`fixed z-10 w-[27rem] h-screen overflow-x-hidden overflow-y-scroll bg-basebg-400 p-6 border border-red-500 ${styles.scrollbar}`}
+        className={`fixed z-10 w-[27rem] h-screen overflow-x-hidden overflow-y-scroll bg-basebg-400 p-6 ${styles.scrollbar}`}
       >
         <Header />
         <Items />

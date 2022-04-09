@@ -1,7 +1,7 @@
-import React, { useReducer, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import useHover from "hooks/useHover";
 
 const styles = {
   anchor: `
@@ -14,33 +14,17 @@ const styles = {
     ease-in-out
     transform `,
 };
-const hoverReducer = (isHover) => !isHover;
 
 const withHover = (WrappedComponent) => {
   function WithHover(props) {
     const { path, title, isButton } = props;
     const router = useRouter();
     const pageUrl = router.pathname;
-    const [isHover, setIsHover] = useReducer(hoverReducer, pageUrl === path);
-    const anchorRef = useRef(null);
-
-    function handleHover() {
-      setIsHover();
-    }
-
-    useEffect(() => {
-      anchorRef.current?.addEventListener("mouseenter", handleHover);
-      anchorRef.current?.addEventListener("mouseleave", handleHover);
-
-      return () => {
-        window.removeEventListener("mouseenter", handleHover);
-        window.removeEventListener("mouseleave", handleHover);
-      };
-    }, []);
+    const { ref, isHover } = useHover(pageUrl === path);
 
     return isButton ? (
       <button
-        ref={anchorRef}
+        ref={ref}
         className="w-12 h-12 flex items-center justify-center rounded-lg border border-primary hover:border-accents-200"
       >
         <WrappedComponent isHover={isHover} />
@@ -53,7 +37,7 @@ const withHover = (WrappedComponent) => {
               filter: `drop-shadow(0px 8px 24px rgba(234, 124, 105, 0.32))`,
             }),
           }}
-          ref={anchorRef}
+          ref={ref}
           title={title}
           className={`${styles.anchor} ${isHover && "bg-primary"}`}
         >
@@ -66,7 +50,7 @@ const withHover = (WrappedComponent) => {
   WithHover.propTypes = {
     isButton: PropTypes.bool,
     path: PropTypes.string,
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
   };
   WithHover.defaultProps = {
     isButton: false,
