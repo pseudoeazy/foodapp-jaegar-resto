@@ -1,0 +1,9 @@
+export { default as Contact } from "@components/icons/Contact";
+export { default as Home } from "@components/icons/Home";
+export { default as Logout } from "@components/icons/Logout";
+export { default as Notify } from "@components/icons/Notify";
+export { default as Recipes } from "@components/icons/Recipes";
+export { default as Report } from "@components/icons/Report";
+export { default as Settings } from "@components/icons/Settings";
+export { default as Store } from "@components/icons/Store";
+export { default as Bin } from "@components/icons/Bin";
