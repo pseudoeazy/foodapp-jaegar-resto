@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PropTypes from "prop-types";
 import { Bin } from "@components/icons/";
 import withHover from "@components/hoc/withHover";
 import scrollbarStyle from "@components/sidebar/Navbar.module.css";
@@ -57,9 +58,9 @@ const styles = {
 };
 const HoverComponent = withHover(Bin);
 
-const Items = () => {
+const Items = ({ isPopup }) => {
   return (
-    <div>
+    <div className={`${isPopup && "pb-[3.3125rem]"}`}>
       <header className="flex h-[1.375rem] my-6 text-base font-semibold text-white ">
         <h4 className="w-[15.5625rem]">Item</h4>
         <div className="flex-1 flex justify-between ">
@@ -68,7 +69,7 @@ const Items = () => {
         </div>
       </header>
       <section
-        className={`h-[28.375rem]  overflow-x-hidden  overflow-y-scroll border-y border-basebg-200 ${scrollbarStyle.scrollbar}`}
+        className={`h-[28.375rem]  overflow-x-hidden  overflow-y-scroll border-y border-basebg-200   ${scrollbarStyle.scrollbar}`}
       >
         {cartItems.map((item, idx) => (
           <div
@@ -134,17 +135,28 @@ const Items = () => {
           <p className="text-white text-base font-medium">$2136</p>
         </div>
       </section>
-      <section>
-        <button
-          className={styles.button}
-          style={{
-            filter: `drop-shadow(0px 8px 24px rgba(234, 124, 105, 0.32))`,
-          }}
-        >
-          Continue to Payment
-        </button>
-      </section>
+      {isPopup === false && (
+        <section>
+          <button
+            className={styles.button}
+            style={{
+              filter: `drop-shadow(0px 8px 24px rgba(234, 124, 105, 0.32))`,
+            }}
+          >
+            Continue to Payment
+          </button>
+        </section>
+      )}
     </div>
   );
 };
+
+Items.propTypes = {
+  isPopup: PropTypes.bool,
+};
+
+Items.defaultProps = {
+  isPopup: false,
+};
+
 export default Items;

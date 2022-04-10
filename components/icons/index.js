@@ -8,3 +8,5 @@ export { default as Settings } from "./Settings";
 export { default as Store } from "./Store";
 export { default as Bin } from "./Bin";
 export { default as Search } from "./Search";
+export { default as Plus } from "./Plus";
+export { default as BackArrow } from "./BackArrow";

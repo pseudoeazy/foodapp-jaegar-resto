@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Bin = ({ isHover }) => (
   <svg
     width="16"
@@ -13,4 +15,7 @@ const Bin = ({ isHover }) => (
   </svg>
 );
 
+Bin.propTypes = {
+  isHover: PropTypes.bool.isRequired,
+};
 export default Bin;
