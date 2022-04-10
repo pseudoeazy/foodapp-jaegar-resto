@@ -10,7 +10,7 @@ import {
   Settings,
   Logout,
 } from "@components/icons/";
-import styles from "@components/sidebar/Navbar.module.css";
+import styles from "./Navbar.module.css";
 
 const classes = {
   li: `w-[5.75rem] h-[6.375rem] flex justify-center items-center py-[1.4375rem] pr-6 pl-3 snap-center`,

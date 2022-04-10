@@ -68,14 +68,14 @@ const Items = () => {
         </div>
       </header>
       <section
-        className={`h-[28.375rem] mt-6 overflow-x-hidden  overflow-y-scroll border-y border-basebg-200 ${scrollbarStyle.scrollbar}`}
+        className={`h-[28.375rem]  overflow-x-hidden  overflow-y-scroll border-y border-basebg-200 ${scrollbarStyle.scrollbar}`}
       >
         {cartItems.map((item, idx) => (
           <div
             key={idx}
-            className="relative z-10 grid grid-cols-1 grid-rows-2 mt-6"
+            className="relative z-10 grid grid-cols-1 grid-rows-2 mt-6 "
           >
-            <div className="flex py-1 ">
+            <div className="flex py-1">
               <div className="flex items-center w-[15.5625rem] ">
                 <div className="flex w-[11.75rem] ">
                   <figure>

@@ -13,11 +13,19 @@ const styles = {
     duration-200
     ease-in-out
     transform `,
+  input: `
+    w-12 h-12 
+    flex items-center 
+    justify-center
+     rounded-lg 
+     border border-primary 
+     hover:border-accents-200
+     `,
 };
 
 const withHover = (WrappedComponent) => {
   function WithHover(props) {
-    const { path, title, isButton } = props;
+    const { path, title, isButton, customStyles } = props;
     const router = useRouter();
     const pageUrl = router.pathname;
     const { ref, isHover } = useHover(pageUrl === path);
@@ -25,7 +33,8 @@ const withHover = (WrappedComponent) => {
     return isButton ? (
       <button
         ref={ref}
-        className="w-12 h-12 flex items-center justify-center rounded-lg border border-primary hover:border-accents-200"
+        className={customStyles ? customStyles : styles.input}
+        type="button"
       >
         <WrappedComponent isHover={isHover} />
       </button>
@@ -55,6 +64,7 @@ const withHover = (WrappedComponent) => {
   WithHover.defaultProps = {
     isButton: false,
     path: "/#",
+    title: "",
   };
   return WithHover;
 };
