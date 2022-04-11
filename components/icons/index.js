@@ -14,3 +14,7 @@ export { default as CreditCard } from "./CreditCard";
 export { default as CheckMark } from "./CheckMark";
 export { default as Wallet } from "./Wallet";
 export { default as Paypal } from "./Paypal";
+export { default as Heart } from "./Heart";
+export { default as Restaurant } from "./Restaurant";
+export { default as Lock } from "./Lock";
+export { default as InfoCircle } from "./InfoCircle";

@@ -1,63 +1,11 @@
 import { useRouter } from "next/router";
 import withHover from "@hoc/withHover";
-import {
-  Store,
-  Home,
-  Recipes,
-  Report,
-  Contact,
-  Notify,
-  Settings,
-  Logout,
-} from "@components/icons/";
+import navMenu from "constants/navMenu";
 import styles from "./Navbar.module.css";
 
 const classes = {
   li: `w-[5.75rem] h-[6.375rem] flex justify-center items-center py-[1.4375rem] pr-6 pl-3 snap-center`,
 };
-
-const menus = [
-  {
-    title: "Store",
-    path: "/#",
-    icon: Store,
-  },
-  {
-    title: "Home",
-    path: "/",
-    icon: Home,
-  },
-  {
-    title: "Recipes",
-    path: "/#",
-    icon: Recipes,
-  },
-  {
-    title: "Report",
-    path: "/#",
-    icon: Report,
-  },
-  {
-    title: "Contact",
-    path: "/#",
-    icon: Contact,
-  },
-  {
-    title: "Notify",
-    path: "/#",
-    icon: Notify,
-  },
-  {
-    title: "Settings",
-    path: "/#",
-    icon: Settings,
-  },
-  {
-    title: "Logout",
-    path: "/#",
-    icon: Logout,
-  },
-];
 
 const Navbar = () => {
   const router = useRouter();
@@ -70,7 +18,7 @@ const Navbar = () => {
       >
         <div className="pl-3">
           <ul className="flex flex-col snap-y">
-            {menus.map(({ path, title, icon: Icon }, idx) => {
+            {navMenu.map(({ path, title, icon: Icon }, idx) => {
               const HoverComponent = withHover(Icon);
               return (
                 <li

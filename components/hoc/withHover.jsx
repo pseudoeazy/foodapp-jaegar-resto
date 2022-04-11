@@ -28,7 +28,7 @@ const withHover = (WrappedComponent) => {
     const { path, title, isButton, customStyles } = props;
     const router = useRouter();
     const pageUrl = router.pathname;
-    const { ref, isHover } = useHover(pageUrl === path);
+    const { ref, isHover } = useHover(pageUrl === path || title === "Store");
 
     return isButton ? (
       <button
@@ -48,7 +48,9 @@ const withHover = (WrappedComponent) => {
           }}
           ref={ref}
           title={title}
-          className={`${styles.anchor} ${isHover && "bg-primary"}`}
+          className={`${styles.anchor} ${isHover && "bg-primary"} ${
+            isHover && title === "Store" && " opacity-75"
+          }`}
         >
           <WrappedComponent isHover={isHover} />
         </a>
