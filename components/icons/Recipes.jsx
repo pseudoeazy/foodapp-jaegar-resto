@@ -28,6 +28,6 @@ function Icon({ isHover, isSettings }) {
 
 Icon.propTypes = {
   isHover: PropTypes.bool.isRequired,
-  isSettings: PropTypes.bool.isRequired,
+  isSettings: PropTypes.bool,
 };
 export default Icon;

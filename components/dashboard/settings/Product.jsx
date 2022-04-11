@@ -27,6 +27,7 @@ const styles = {
     ease-in-out
     transform `,
 };
+
 const Product = ({ index, name, price, imgUrl, quantity }) => {
   const { ref, isHover } = useHover();
   return (
