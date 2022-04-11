@@ -23,11 +23,13 @@ const Header = ({ title, content, hasButton }) => {
   return (
     <header>
       <div className="flex justify-between">
-        <div className=" flex-1">
+        <div className={`flex-1 ${hasButton === false && "mt-10  p-0"}`}>
           {hasButton && (
             <Button component={BackArrow} styles={styles.backButton} />
           )}
-          <h1 className="text-white font-semibold text-[1.75rem]">{title}</h1>
+          <h1 className="text-white font-semibold text-[1.75rem] mt-0 pt-0 ">
+            {title}
+          </h1>
           <p className="mt-1 text-textbg-400 font-normal text-base">
             {content}
           </p>

@@ -61,15 +61,19 @@ const HoverComponent = withHover(Bin);
 const Items = ({ isPopup }) => {
   return (
     <div className={`${isPopup && "pb-[3.3125rem]"}`}>
-      <header className="flex h-[1.375rem] my-6 text-base font-semibold text-white ">
-        <h4 className="w-[15.5625rem]">Item</h4>
-        <div className="flex-1 flex justify-between ">
-          <h4>Qty</h4>
-          <h4 className="pr-1">Price</h4>
-        </div>
-      </header>
+      {isPopup == false && (
+        <header className="flex h-[1.375rem] my-6 text-base font-semibold text-white ">
+          <h4 className="w-[15.5625rem]">Item</h4>
+          <div className="flex-1 flex justify-between ">
+            <h4>Qty</h4>
+            <h4 className="pr-1">Price</h4>
+          </div>
+        </header>
+      )}
       <section
-        className={`h-[28.375rem]  overflow-x-hidden  overflow-y-scroll border-y border-basebg-200   ${scrollbarStyle.scrollbar}`}
+        className={`h-[28.375rem]  overflow-x-hidden  overflow-y-scroll border-y border-basebg-200 ${
+          isPopup && "mt-6"
+        }   ${scrollbarStyle.scrollbar}`}
       >
         {cartItems.map((item, idx) => (
           <div

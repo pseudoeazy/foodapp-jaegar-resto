@@ -10,3 +10,7 @@ export { default as Bin } from "./Bin";
 export { default as Search } from "./Search";
 export { default as Plus } from "./Plus";
 export { default as BackArrow } from "./BackArrow";
+export { default as CreditCard } from "./CreditCard";
+export { default as CheckMark } from "./CheckMark";
+export { default as Wallet } from "./Wallet";
+export { default as Paypal } from "./Paypal";

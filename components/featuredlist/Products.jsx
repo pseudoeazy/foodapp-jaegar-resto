@@ -1,10 +1,6 @@
 import Product from "@components/featuredlist/Product";
 import products from "@data/products";
-
-const sortList = [
-  { label: "Dine In", value: "dinein" },
-  { label: "Take out", value: "takeout" },
-];
+import orderType from "constants/orderType";
 
 const Products = () => {
   return (
@@ -12,7 +8,7 @@ const Products = () => {
       <section className="flex justify-between items-center ">
         <h2 className="text-white font-semibold text-[20px]">Choose Dishes</h2>
         <select className="w-[6.25rem] h-12 rounded-lg bg-basebg-400 p-3.5 text-white border border-basebg-200 text-sm font-medium">
-          {sortList.map(({ label, value }, idx) => (
+          {orderType.map(({ label, value }, idx) => (
             <option key={idx} value={value}>
               {label}
             </option>
