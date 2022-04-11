@@ -4,16 +4,28 @@ import useHover from "hooks/useHover";
 
 const styles = {
   li: `
+  relative
   first:rounded-t-lg
   last:rounded-b-lg
   h-[5.4375rem]
   py-6
   pl-6
   cursor-pointer
+  transition
+  duration-500
+  ease-in-out
     `,
   button: `
+  relative
   h-[2.4375rem]
-  flex`,
+  flex
+  transition
+  duration-500
+  ease-in-out
+  `,
+  span: `
+  flex flex-col 
+  `,
 };
 
 /**
@@ -29,7 +41,7 @@ const MenuLink = ({ label, description, path, icons: Icon }) => {
   return (
     <li
       ref={ref}
-      className={`${styles.li}`}
+      className={`${styles.li} `}
       style={{
         ...(isHover && {
           backgroundColor: `rgba(234, 124, 105, 0.26)
@@ -42,7 +54,7 @@ const MenuLink = ({ label, description, path, icons: Icon }) => {
           <div className="mr-2 ">
             <Icon isHover={isHover} isSettings />
           </div>
-          <div className="flex flex-col ">
+          <div className={`${styles.span}`}>
             <span
               className={`text-left   font-medium text-sm ${
                 isHover ? "text-primary" : "text-white"
