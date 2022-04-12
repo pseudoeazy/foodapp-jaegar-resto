@@ -6,7 +6,6 @@ import {
   Contact,
   Notify,
   Settings,
-  Logout,
 } from "components/icons/";
 
 const navMenu = [
@@ -44,11 +43,6 @@ const navMenu = [
     title: "Settings",
     path: "/settings",
     icon: Settings,
-  },
-  {
-    title: "Logout",
-    path: "/#",
-    icon: Logout,
   },
 ];
 

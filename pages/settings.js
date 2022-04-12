@@ -3,8 +3,9 @@ import Header from "components/dashboard/Header";
 import SubMenu from "components/dashboard/settings/SubMenu";
 import ManageProducts from "components/dashboard/settings/ManageProducts";
 import { Navbar } from "@components/sidebar/";
+import withAuth from "components/hoc/withAuth";
 
-export default function Settings() {
+function Settings() {
   return (
     <Layout>
       <Navbar />
@@ -20,3 +21,4 @@ export default function Settings() {
     </Layout>
   );
 }
+export default withAuth(Settings);

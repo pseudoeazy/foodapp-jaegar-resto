@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import withHover from "@hoc/withHover";
+import AuthMenu from "./AuthNav";
 import navMenu from "constants/navMenu";
 import styles from "./Navbar.module.css";
 
@@ -32,6 +33,7 @@ const Navbar = () => {
                 </li>
               );
             })}
+            <AuthMenu />
           </ul>
         </div>
       </nav>

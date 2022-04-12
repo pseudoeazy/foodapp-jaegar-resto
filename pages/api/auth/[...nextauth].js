@@ -1,15 +1,11 @@
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 import axios from "axios";
+import { loginUser } from "/services/auth";
 
 const options = {
   providers: [
     Providers.Credentials({
-      // The name to display on the sign in form (e.g. 'Sign in with...')
-      // name: "Credentials",
-      // The credentials is used to generate a suitable form on the sign in page.
-      // You can specify whatever fields you are expecting to be submitted.
-      // e.g. domain, username, password, 2FA token, etc.
       name: "Credentials",
       credentials: {
         username: {
@@ -19,15 +15,12 @@ const options = {
         },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials, req) {
+      async authorize({ email, password }, req) {
         try {
-          const user = await axios.post(
-            `${process.env.apiUrl}/api/account/login`,
-            credentials
-          );
+          const user = await loginUser({ email, password });
           console.log({ user });
-          if (user?.data?.token) {
-            return user.data;
+          if (user?.accessToken && user?.email === email) {
+            return user;
           }
           return null;
         } catch (error) {

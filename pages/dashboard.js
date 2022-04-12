@@ -3,8 +3,9 @@ import Header from "components/dashboard/Header";
 import { Navbar } from "@components/sidebar/";
 import DateFormatter from "components/common/DateFormatter";
 import ManageOrders from "components/dashboard/orders/ManageOrders";
+import withAuth from "components/hoc/withAuth";
 
-export default function Dashboard() {
+function Dashboard() {
   return (
     <Layout>
       <Navbar />
@@ -19,3 +20,4 @@ export default function Dashboard() {
     </Layout>
   );
 }
+export default withAuth(Dashboard);

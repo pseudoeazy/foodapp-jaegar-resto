@@ -18,3 +18,4 @@ export { default as Heart } from "./Heart";
 export { default as Restaurant } from "./Restaurant";
 export { default as Lock } from "./Lock";
 export { default as InfoCircle } from "./InfoCircle";
+export { default as Cancel } from "./Cancel";
