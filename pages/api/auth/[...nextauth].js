@@ -1,6 +1,5 @@
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
-import axios from "axios";
 import { loginUser } from "/services/auth";
 
 const options = {
@@ -18,13 +17,11 @@ const options = {
       async authorize({ email, password }, req) {
         try {
           const user = await loginUser({ email, password });
-          console.log({ user });
           if (user?.accessToken && user?.email === email) {
             return user;
           }
           return null;
         } catch (error) {
-          console.log(error);
           return null;
         }
       },

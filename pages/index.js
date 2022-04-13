@@ -3,9 +3,11 @@ import Header from "@components/Header";
 import Products from "@components/featuredlist/Products";
 import { Navbar, Cart } from "@components/sidebar/";
 import Payment from "components/popup/Payment";
+// import { generateOrderStatus } from "/seed/orderStatus";
 
 export default function Index() {
   //popUp={Payment}
+
   return (
     <Layout>
       <Navbar />

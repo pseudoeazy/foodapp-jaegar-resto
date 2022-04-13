@@ -1,6 +1,20 @@
-import status from "constants/orderStatus";
+import { useEffect, useState } from "react";
+import { getOrderStatuses } from "services/orderStatus";
+
 const Order = ({ row }) => {
-  const orderStatus = status[row?.status];
+  const [statuses, setStatuses] = useState([]);
+  const orderStatus = statuses[row?.status] ?? {};
+
+  useEffect(() => {
+    getOrderStatuses()
+      .then((status) => {
+        setStatuses(status);
+      })
+      .catch((err) => {
+        setStatuses([]);
+      });
+  }, []);
+
   return (
     <tr className="text-white">
       <td className="px-6 py-4 whitespace-nowrap">
@@ -25,7 +39,7 @@ const Order = ({ row }) => {
         </span>
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-        {orderStatus?.title ?? status["1"]?.title}
+        {orderStatus?.title ?? null}
       </td>
     </tr>
   );

@@ -25,7 +25,7 @@ const styles = {
 
 const withHover = (WrappedComponent) => {
   function WithHover(props) {
-    const { path, title, isButton, customStyles } = props;
+    const { path, title, isButton, customStyles, handleClick } = props;
     const router = useRouter();
     const pageUrl = router.pathname;
     const { ref, isHover } = useHover(pageUrl === path || title === "Store");
@@ -35,6 +35,7 @@ const withHover = (WrappedComponent) => {
         ref={ref}
         className={customStyles ? customStyles : styles.input}
         type="button"
+        onClick={handleClick}
       >
         <WrappedComponent isHover={isHover} />
       </button>
@@ -62,11 +63,13 @@ const withHover = (WrappedComponent) => {
     isButton: PropTypes.bool,
     path: PropTypes.string,
     title: PropTypes.string,
+    handleClick: PropTypes.func,
   };
   WithHover.defaultProps = {
     isButton: false,
     path: "/#",
     title: "",
+    handleClick: () => null,
   };
   return WithHover;
 };

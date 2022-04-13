@@ -1,6 +1,8 @@
+import { useContext } from "react";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import useHover from "hooks/useHover";
+import CartContext from "context/CartContext";
 
 const styles = {
   info: `
@@ -13,8 +15,13 @@ const styles = {
     transform`,
 };
 
-const Product = ({ name, price, imgUrl, quantity }) => {
+const Product = ({ id, name, price, imgUrl, quantity }) => {
+  const { updateCart } = useContext(CartContext);
   const { ref, isHover } = useHover();
+
+  const handleClick = (product) => {
+    updateCart({ type: "ADD_TO_CART", product });
+  };
   return (
     <div className="relative flex  w-48 h-[16.25rem] ">
       <div className="absolute left-1/2 z-20">
@@ -28,6 +35,7 @@ const Product = ({ name, price, imgUrl, quantity }) => {
         </figure>
       </div>
       <div
+        role="button"
         ref={ref}
         style={{
           ...(isHover && {
@@ -36,6 +44,7 @@ const Product = ({ name, price, imgUrl, quantity }) => {
           }),
         }}
         className={styles.info}
+        onClick={() => handleClick({ id, name, price, imgUrl, quantity: 1 })}
       >
         <div className="flex flex-col items-center space-y-1 w-36 h-[5.5rem] ">
           <span className="block h-9 text-center font-medium text-sm text-white">

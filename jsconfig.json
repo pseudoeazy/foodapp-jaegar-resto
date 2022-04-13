@@ -4,11 +4,12 @@
       "paths": {
         "@components/*": ["/components/*"],
         "@hoc/*":["/components/hoc/*"],
-        "@/hooks/*":["/hooks/*"],
+        "@hooks/*":["/hooks/*"],
         "@data/*":["/data/*"],
         "@utils/*":["/utils/*"],
         "@services/*":["/services/*"],
-        "@firebase-app/*":["/firebase-app/*"]
+        "@firebase-app/*":["/firebase-app/*"],
+        "@context/*":["/context/*"]
 
       }
     }

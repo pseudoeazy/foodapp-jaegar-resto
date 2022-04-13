@@ -1,6 +1,9 @@
+import { useReducer } from "react";
 import Router from "next/router";
 import NProgress from "nprogress";
 import { Provider } from "next-auth/client";
+import CartContext from "/context/CartContext";
+import { cartReducer, initialCart } from "utils/cart";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
@@ -13,9 +16,13 @@ function MyApp({ Component, pageProps }) {
   Router.events.on("routeChangeComplete", () => {
     NProgress.done();
   });
+
+  const [cart, updateCart] = useReducer(cartReducer, initialCart);
   return (
     <Provider session={pageProps.session}>
-      <Component {...pageProps} />
+      <CartContext.Provider value={{ cart, updateCart }}>
+        <Component {...pageProps} />
+      </CartContext.Provider>
     </Provider>
   );
 }
