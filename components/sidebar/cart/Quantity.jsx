@@ -1,4 +1,4 @@
-import { useReducer, useEffect, useContext, memo } from "react";
+import { useReducer, useEffect, useContext } from "react";
 import CartContext from "context/CartContext";
 import { formReducer } from "utils/cart";
 
@@ -50,7 +50,7 @@ const Quantity = ({ item }) => {
       });
     }
   }, [formData.quantity, item, updateCart]);
-  console.log({ formData });
+
   return (
     <form>
       <input
@@ -63,4 +63,4 @@ const Quantity = ({ item }) => {
   );
 };
 
-export default memo(Quantity);
+export default Quantity;

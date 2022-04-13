@@ -5,6 +5,9 @@ import orderType from "constants/orderType";
 import styles from "@components/sidebar/Navbar.module.css";
 
 const style = {
+  layout: `duration-500
+  ease-in-out
+  transform`,
   leftLayout: `
     fixed z-10 w-[27rem] h-screen 
     overflow-x-hidden overflow-y-scroll 
@@ -39,10 +42,10 @@ const style = {
 const Payment = () => {
   return (
     <section
-      className="fixed z-30 flex justify-end w-[74.625rem] min-h-screen mx-auto "
+      className={`fixed z-30 flex justify-end w-[74.625rem] min-h-screen mx-auto ${style.layout}`}
       style={{ backgroundColor: `rgba(0, 0, 0, 0.7)` }}
     >
-      <aside className="flex w-[52rem] ">
+      <aside className={`relative flex w-[52rem]  `}>
         <section className="w-[27rem]">
           <div className={style.leftLayout}>
             <Header hasButton title="Confirmation" content="Orders #34562" />

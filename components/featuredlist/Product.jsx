@@ -19,9 +19,14 @@ const Product = ({ id, name, price, imgUrl, quantity }) => {
   const { updateCart } = useContext(CartContext);
   const { ref, isHover } = useHover();
 
-  const handleClick = (product) => {
-    updateCart({ type: "ADD_TO_CART", product });
+  const handleClick = () => {
+    const product= { id, name, price, imgUrl, quantity: 1 }
+    updateCart({
+      type: "ADD_TO_CART",
+      product,
+    });
   };
+
   return (
     <div className="relative flex  w-48 h-[16.25rem] ">
       <div className="absolute left-1/2 z-20">
@@ -44,7 +49,7 @@ const Product = ({ id, name, price, imgUrl, quantity }) => {
           }),
         }}
         className={styles.info}
-        onClick={() => handleClick({ id, name, price, imgUrl, quantity: 1 })}
+        onClick={handleClick}
       >
         <div className="flex flex-col items-center space-y-1 w-36 h-[5.5rem] ">
           <span className="block h-9 text-center font-medium text-sm text-white">

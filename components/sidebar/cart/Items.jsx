@@ -6,6 +6,7 @@ import { Bin } from "@components/icons/";
 import withHover from "@components/hoc/withHover";
 import Quantity from "./Quantity";
 import OrderNote from "./OrderNote";
+import AppContext from "context/AppContext";
 import CartContext from "context/CartContext";
 import scrollbarStyle from "@components/sidebar/Navbar.module.css";
 
@@ -28,8 +29,9 @@ const styles = {
 const HoverComponent = withHover(Bin);
 
 const Items = ({ isPopup }) => {
+  const { setAppSettings } = useContext(AppContext);
   const { cart, updateCart } = useContext(CartContext);
-  console.log({ cart });
+
   return (
     <div className={`${isPopup && "pb-[3.3125rem]"}`}>
       {isPopup == false && (
@@ -122,6 +124,12 @@ const Items = ({ isPopup }) => {
             style={{
               filter: `drop-shadow(0px 8px 24px rgba(234, 124, 105, 0.32))`,
             }}
+            type="button"
+            onClick={() =>
+              setAppSettings({
+                type: "CONTIUE_TO_PAYMENT",
+              })
+            }
           >
             Continue to Payment
           </button>

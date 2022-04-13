@@ -1,4 +1,4 @@
-import { useReducer, useEffect, useContext, memo } from "react";
+import { useReducer, useEffect, useContext } from "react";
 import CartContext from "context/CartContext";
 import { formReducer } from "utils/cart";
 
@@ -26,6 +26,7 @@ const styles = {
 
 const OrderNote = ({ item }) => {
   const { updateCart } = useContext(CartContext);
+
   const [formData, setFormData] = useReducer(formReducer, {
     orderNote: item.orderNote ?? "",
   });
@@ -45,7 +46,7 @@ const OrderNote = ({ item }) => {
       });
     }
   }, [formData.orderNote, item, updateCart]);
-  console.log({ formData });
+
   return (
     <form>
       <input
@@ -59,4 +60,4 @@ const OrderNote = ({ item }) => {
   );
 };
 
-export default memo(OrderNote);
+export default OrderNote;

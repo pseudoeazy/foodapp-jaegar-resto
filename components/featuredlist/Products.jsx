@@ -18,7 +18,7 @@ const Products = () => {
       <section className="flex flex-col items-center">
         <div className="grid grid-cols-3 gap-x-7 gap-y-6 mt-6 ">
           {products.map((product, idx) => (
-            <Product key={idx} {...product} />
+            <Product key={product.id} {...product} />
           ))}
         </div>
       </section>
