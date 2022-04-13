@@ -1,34 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## [Jaegar Resto Food App ](https://foodapp-jaegar-resto.vercel.app)
 
-## Getting Started
+A platform that sells meals. The system supports CRUD for CART and authentication. App is powered by nextjs and firebase.
 
-First, run the development server:
+## [Figma Design ](https://uikitfree.com/figma-food-tablet-pos-dark-template/)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Pages
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- `home page ` - only the Layout UI is done
+- `login`
+- `dashboard` basic UI is done.
+- `settings` 50% layout is done.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Create evv
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- `SESSION_SECRET=`
+- `API_URL=`
+- `NEXT_PUBLIC_LOGIN_REDIRECT_URI=`
+- `NEXTAUTH_URL=`
+- `SESSION_DURATION=`
+- `LOGOUT_REDIRECT_URL=`
+- `apiKey=`
+- `authDomain=`
+- `projectId=`
+- `storageBucket=`
+- `messagingSenderId=`
+- `appId=`
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Setup Locally
 
-## Learn More
+- `clone repo`
+- `npm install`
+- `npm run dev` to start the server
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  App runs on PORT 3000 by default.
