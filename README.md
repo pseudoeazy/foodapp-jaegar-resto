@@ -4,6 +4,10 @@ A platform that sells meals. The system supports CRUD for CART and authenticatio
 
 ## [Figma Design ](https://uikitfree.com/figma-food-tablet-pos-dark-template/)
 
+login credentials for private routes(dashboard/settings)
+email: israel@jaejar.com
+password:israel
+
 ## Pages
 
 - `home page ` - only the Layout UI is done
