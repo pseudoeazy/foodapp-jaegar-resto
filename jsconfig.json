@@ -1,16 +1,15 @@
 {
-    "compilerOptions": {
-      "baseUrl": ".",
-      "paths": {
-        "@components/*": ["/components/*"],
-        "@hoc/*":["/components/hoc/*"],
-        "@hooks/*":["/hooks/*"],
-        "@data/*":["/data/*"],
-        "@utils/*":["/utils/*"],
-        "@services/*":["/services/*"],
-        "@firebase-app/*":["/firebase-app/*"],
-        "@context/*":["/context/*"]
-
-      }
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["/components/*"],
+      "@hoc/*": ["/components/hoc/*"],
+      "@hooks/*": ["/hooks/*"],
+      "@data/*": ["/data/*"],
+      "@utils/*": ["/utils/*"],
+      "@services/*": ["/services/*"],
+      "@firebase-app/*": ["/firebase-app/*"],
+      "@context/*": ["/context/*"]
     }
   }
+}
